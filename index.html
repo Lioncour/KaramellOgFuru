@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Syne:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Syne:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/karamell.css" />
@@ -24,39 +24,63 @@
     <a class="skip" href="#main">Hopp til innhold</a>
 
     <header class="site-nav">
-      <a class="brand-mark" href="#">Karamell · Furu</a>
+      <a class="brand-mark" href="#"><span class="brand-mark__dot" aria-hidden="true"></span>Karamell / Furu</a>
       <a class="nav-cta" href="#kontakt">Kontakt</a>
     </header>
 
     <main id="main">
       <section class="hero" aria-label="Introduksjon">
+        <div class="hero__grid" aria-hidden="true"></div>
         <div class="hero__glow" aria-hidden="true"></div>
+        <p class="hero__side" aria-hidden="true"><span>OSLO</span><span class="hero__side__sep">·</span><span>2026</span></p>
         <div class="hero__inner">
-          <p class="hero__eyebrow">Luksusfinsnikeri · Oslo</p>
+          <p class="hero__eyebrow"><span class="hero__eyebrow__tag">[01]</span> Luksusfinsnikeri</p>
           <h1 class="hero__title">
-            <span>Karamell</span>
-            <span>og Furu</span>
+            <span class="hero__line hero__line--solid">Karamell</span>
+            <span class="hero__line hero__line--outline">og Furu</span>
           </h1>
           <p class="hero__lead">
-            For deg som vil ha treverk med tyngde, varme og attitude — uten masseprodusert glans. Vi tar færre prosjekter. Vi gjør dem skikkelig.
+            Treverk med tyngde og attitude — ikke showroom-glans. Færre prosjekter. Mer nerve.
           </p>
-          <p class="hero__scroll">Scroll</p>
+          <div class="hero__meta">
+            <span class="hero__scroll">Scroll</span>
+            <span class="hero__rule" aria-hidden="true"></span>
+          </div>
         </div>
       </section>
 
-      <section class="section section--cream" id="merke" aria-labelledby="merke-h">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span class="marquee__text"
+            >Håndverk · Materialitet · Patina · Oslo · Langsom produksjon · Tre som varer ·
+          </span>
+          <span class="marquee__text"
+            >Håndverk · Materialitet · Patina · Oslo · Langsom produksjon · Tre som varer ·
+          </span>
+        </div>
+      </div>
+
+      <section class="slab" aria-label="Manifest">
+        <p class="slab__index">02</p>
+        <p class="slab__h">Brutalt ærlig om hva ting koster — i tid og materiale.</p>
+        <p class="slab__p">
+          Vi leker ikke butikk. Karamell og Furu er for deg som tåler kontrast: myk varme i tre møter harde kanter i prosessen.
+        </p>
+      </section>
+
+      <section class="section section--cream section--skew" id="merke" aria-labelledby="merke-h">
         <div class="section__grid section__grid--split">
           <div>
-            <p class="section__label" id="merke-h">Merke</p>
-            <h2 class="section__h2">Ikke et nytt møbelhus. En annen gate.</h2>
+            <p class="section__label" id="merke-h"><span class="section__label__bracket">//</span> Merke</p>
+            <h2 class="section__h2">Ikke et møbelhus. En annen gate.</h2>
           </div>
-          <div>
+          <div class="section__prose-wrap">
             <p class="section__prose">
               <strong>Karamell og Furu</strong> er søsterk til <a href="https://simonoglucien.com/">Simon og Lucien</a> — samme respekt for håndverk,
-              men et annet uttrykk: her møter du et merke for deg som bevisst søker bort fra «trygt og nordisk grått» og vil ha rom med personlighet, tekstur og litt mot.
+              men et annet uttrykk: for deg som bevisst søker bort fra «trygt nordisk grått» og vil ha rom med tekstur, mot og litt råhet.
             </p>
             <p class="section__prose">
-              Vi jobber med utvalgte tresorter, patina og detaljer som tåler å bli sett på nært hold. Ingen hastverksløsninger, ingen kompromisser mot trendkurver.
+              Utvalgte tresorter, patina og detaljer som tåler nærstudium. Ingen hastverk, ingen kurve-smiting.
             </p>
             <p class="pullquote">Integritet over hype. Alltid.</p>
           </div>
@@ -64,43 +88,43 @@
       </section>
 
       <section class="gallery-wrap" aria-label="Utvalgte arbeider">
-        <div class="section__grid" style="padding: 3rem 0 2rem; max-width: 72rem">
+        <div class="gallery-intro">
           <div>
-            <p class="section__label">Arbeider</p>
-            <h2 class="section__h2" style="color: var(--espresso)">Utvalgte stemninger</h2>
-            <p class="section__prose" style="color: var(--caramel-deep); max-width: 42ch">
-              Bildene under er plassholdere — bytt til egne prosjekter i <code style="font-size: 0.9em">data/gallery.json</code> og <code style="font-size: 0.9em">images/gallery/</code>.
+            <p class="section__label section__label--on-dark"><span class="section__label__bracket">//</span> Arbeider</p>
+            <h2 class="gallery-intro__h2">Utvalgte stemninger</h2>
+            <p class="gallery-intro__prose">
+              Plassholdere nå — bytt i <code>data/gallery.json</code> og <code>images/gallery/</code>.
             </p>
           </div>
         </div>
         <div id="gallery-mount"></div>
       </section>
 
-      <section class="section section--furu" aria-labelledby="filosofi-h">
+      <section class="section section--furu section--border-top" aria-labelledby="filosofi-h">
         <div class="section__grid section__grid--split">
           <div>
-            <p class="section__label" id="filosofi-h">For hvem</p>
+            <p class="section__label" id="filosofi-h"><span class="section__label__bracket">//</span> For hvem</p>
             <h2 class="section__h2">Du kjøper ikke volum. Du kjøper ro.</h2>
           </div>
           <div>
             <p class="section__prose">
-              Karamell og Furu henvender seg til deg som har lyst på spesialtilpassede møbler eller romlige grep — og som skjønner at ekte kvalitet tar tid.
-              Vi snakker med deg tidlig, setter tydelige rammer, og leverer noe du ikke finner i katalogen.
+              For deg som vil ha spesialtilpassede grep — og som skjønner at ekte kvalitet tar tid. Vi snakker tidlig, setter rammer, leverer utenfor katalogen.
             </p>
             <p class="section__prose">
-              Om du allerede kjenner Simon og Lucien: tenk på dette som «Lexus-motoren» — samme presisjon, annen opplevelse.
+              Kjenner du Simon og Lucien: tenk «samme motor — annen karosseri».
             </p>
           </div>
         </div>
       </section>
 
       <section class="cta" id="kontakt" aria-labelledby="cta-h">
+        <div class="cta__block" aria-hidden="true"></div>
         <div class="cta__inner">
-          <h2 class="cta__h2" id="cta-h">La oss ta en rolig prat</h2>
+          <p class="cta__eyebrow">[03] Kontakt</p>
+          <h2 class="cta__h2" id="cta-h">La oss ta en prat</h2>
           <p class="cta__p">
-            Send en kort beskrivelse av rommet eller prosjektet — vi svarer med ærlighet om vi er riktig match.
+            Kort beskrivelse av rom eller prosjekt — vi svarer ærlig om vi er riktig match.
           </p>
-          <!-- Bytt til ekte e-post når domenet er klart -->
           <a class="btn" href="mailto:studio@karamellogfuru.no?subject=Karamell%20og%20Furu%20—%20henvendelse">studio@karamellogfuru.no</a>
         </div>
       </section>
@@ -110,7 +134,7 @@
       <div class="footer__inner">
         <div>
           <p class="footer__brand">Karamell og Furu</p>
-          <p class="footer__tag">Luksusfinsnikeri. Et søsterk til Simon og Lucien AS.</p>
+          <p class="footer__tag">Luksusfinsnikeri · søsterk til Simon og Lucien AS</p>
         </div>
         <p class="footer__meta">
           © <span id="y"></span> · Oslo ·
