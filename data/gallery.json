@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "src": "images/gallery/01.jpg",
+      "alt": "Interiør i varme toner og tre",
+      "size": "large"
+    },
+    {
+      "src": "images/gallery/02.jpg",
+      "alt": "Detalj, lys og skygge",
+      "size": "small"
+    },
+    {
+      "src": "images/gallery/03.jpg",
+      "alt": "Rom med håndverk",
+      "size": "small"
+    },
+    {
+      "src": "images/gallery/04.jpg",
+      "alt": "Arkitektonisk ro",
+      "size": "wide"
+    }
+  ]
+}

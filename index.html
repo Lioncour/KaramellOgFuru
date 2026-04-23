@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Karamell og Furu — luksusfinsnikeri</title>
+    <meta
+      name="description"
+      content="Karamell og Furu: norsk luksus i tre. Et søsterk til Simon og Lucien — utvalgte prosjekter, langsomt håndverk, ekte materialer."
+    />
+    <meta property="og:title" content="Karamell og Furu" />
+    <meta property="og:description" content="Luksusfinsnikeri. Integritet over støy." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/karamell.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Hopp til innhold</a>
+
+    <header class="site-nav">
+      <a class="brand-mark" href="#">Karamell · Furu</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-label="Introduksjon">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <p class="hero__eyebrow">Luksusfinsnikeri · Oslo</p>
+          <h1 class="hero__title">
+            <span>Karamell</span>
+            <span>og Furu</span>
+          </h1>
+          <p class="hero__lead">
+            For deg som vil ha treverk med tyngde, varme og attitude — uten masseprodusert glans. Vi tar færre prosjekter. Vi gjør dem skikkelig.
+          </p>
+          <p class="hero__scroll">Scroll</p>
+        </div>
+      </section>
+
+      <section class="section section--cream" id="merke" aria-labelledby="merke-h">
+        <div class="section__grid section__grid--split">
+          <div>
+            <p class="section__label" id="merke-h">Merke</p>
+            <h2 class="section__h2">Ikke et nytt møbelhus. En annen gate.</h2>
+          </div>
+          <div>
+            <p class="section__prose">
+              <strong>Karamell og Furu</strong> er søsterk til <a href="https://simonoglucien.com/">Simon og Lucien</a> — samme respekt for håndverk,
+              men et annet uttrykk: her møter du et merke for deg som bevisst søker bort fra «trygt og nordisk grått» og vil ha rom med personlighet, tekstur og litt mot.
+            </p>
+            <p class="section__prose">
+              Vi jobber med utvalgte tresorter, patina og detaljer som tåler å bli sett på nært hold. Ingen hastverksløsninger, ingen kompromisser mot trendkurver.
+            </p>
+            <p class="pullquote">Integritet over hype. Alltid.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-wrap" aria-label="Utvalgte arbeider">
+        <div class="section__grid" style="padding: 3rem 0 2rem; max-width: 72rem">
+          <div>
+            <p class="section__label">Arbeider</p>
+            <h2 class="section__h2" style="color: var(--espresso)">Utvalgte stemninger</h2>
+            <p class="section__prose" style="color: var(--caramel-deep); max-width: 42ch">
+              Bildene under er plassholdere — bytt til egne prosjekter i <code style="font-size: 0.9em">data/gallery.json</code> og <code style="font-size: 0.9em">images/gallery/</code>.
+            </p>
+          </div>
+        </div>
+        <div id="gallery-mount"></div>
+      </section>
+
+      <section class="section section--furu" aria-labelledby="filosofi-h">
+        <div class="section__grid section__grid--split">
+          <div>
+            <p class="section__label" id="filosofi-h">For hvem</p>
+            <h2 class="section__h2">Du kjøper ikke volum. Du kjøper ro.</h2>
+          </div>
+          <div>
+            <p class="section__prose">
+              Karamell og Furu henvender seg til deg som har lyst på spesialtilpassede møbler eller romlige grep — og som skjønner at ekte kvalitet tar tid.
+              Vi snakker med deg tidlig, setter tydelige rammer, og leverer noe du ikke finner i katalogen.
+            </p>
+            <p class="section__prose">
+              Om du allerede kjenner Simon og Lucien: tenk på dette som «Lexus-motoren» — samme presisjon, annen opplevelse.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="kontakt" aria-labelledby="cta-h">
+        <div class="cta__inner">
+          <h2 class="cta__h2" id="cta-h">La oss ta en rolig prat</h2>
+          <p class="cta__p">
+            Send en kort beskrivelse av rommet eller prosjektet — vi svarer med ærlighet om vi er riktig match.
+          </p>
+          <!-- Bytt til ekte e-post når domenet er klart -->
+          <a class="btn" href="mailto:studio@karamellogfuru.no?subject=Karamell%20og%20Furu%20—%20henvendelse">studio@karamellogfuru.no</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__brand">Karamell og Furu</p>
+          <p class="footer__tag">Luksusfinsnikeri. Et søsterk til Simon og Lucien AS.</p>
+        </div>
+        <p class="footer__meta">
+          © <span id="y"></span> · Oslo ·
+          <a href="https://simonoglucien.com/">Simon og Lucien</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+    <script src="js/gallery.js"></script>
+  </body>
+</html>
