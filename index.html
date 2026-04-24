@@ -20,47 +20,63 @@
     <link rel="stylesheet" href="css/karamell.css" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   </head>
-  <body>
+  <body class="atelier">
     <a class="skip" href="#main">Hopp til innhold</a>
 
-    <header class="site-nav">
-      <a class="brand-mark" href="#"><span class="brand-mark__dot" aria-hidden="true"></span>Karamell / Furu</a>
-      <a class="nav-cta" href="#kontakt">Kontakt</a>
-    </header>
+    <div class="ghost-layer" aria-hidden="true">
+      <span class="ghost-layer__glyph ghost-layer__glyph--back">KF</span>
+      <span class="ghost-layer__glyph ghost-layer__glyph--front">01</span>
+    </div>
+
+    <div class="band-vertical" aria-hidden="true">
+      <span>fiber · årringer · olje · støv · tid som synes ·</span>
+    </div>
+
+    <a class="corner-hit" href="#main" title="Topp" aria-label="Til toppen">↑</a>
+
+    <aside class="colophon" aria-label="Søsterk og år">
+      <a class="colophon__link" href="https://simonoglucien.com/">Simon og Lucien →</a>
+      <span class="colophon__meta"><span id="y"></span> · Oslo</span>
+    </aside>
 
     <main id="main">
-      <section class="hero" aria-label="Introduksjon">
+      <section class="hero hero--wild" aria-label="Introduksjon">
         <div class="hero__grid" aria-hidden="true"></div>
         <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__stain" aria-hidden="true"></div>
         <p class="hero__side" aria-hidden="true"><span>OSLO</span><span class="hero__side__sep">·</span><span>2026</span></p>
-        <div class="hero__inner">
-          <p class="hero__eyebrow"><span class="hero__eyebrow__tag">[01]</span> Luksusfinsnikeri</p>
-          <h1 class="hero__title">
-            <span class="hero__line hero__line--solid">Karamell</span>
-            <span class="hero__line hero__line--outline">og Furu</span>
-          </h1>
-          <p class="hero__lead">
-            Treverk med tyngde og attitude — ikke showroom-glans. Færre prosjekter. Mer nerve.
-          </p>
-          <div class="hero__meta">
-            <span class="hero__scroll">Scroll</span>
-            <span class="hero__rule" aria-hidden="true"></span>
+        <p class="hero__coords" aria-hidden="true">59.91°N · 10.75°E</p>
+
+        <span class="hero__float hero__float--1" aria-hidden="true">finsnikeri</span>
+        <span class="hero__float hero__float--2" aria-hidden="true">patina</span>
+        <span class="hero__float hero__float--3" aria-hidden="true">langsomt</span>
+
+        <div class="hero__split">
+          <div class="hero__split__main">
+            <p class="hero__eyebrow"><span class="hero__eyebrow__tag">[01]</span> Luksusfinsnikeri</p>
+            <h1 class="hero__title hero__title--fractured">
+              <span class="hero__sr">Karamell og Furu</span>
+              <span class="hero__visual" aria-hidden="true">
+                <span class="hero__fragments">
+                  <span class="hero__frag">Ka</span><span class="hero__frag">ra</span><span class="hero__frag">mell</span>
+                </span>
+                <span class="hero__line hero__line--outline">og Furu</span>
+              </span>
+            </h1>
+          </div>
+          <div class="hero__split__aside">
+            <p class="hero__lead">
+              Treverk med tyngde og attitude — ikke showroom-glans. Færre prosjekter. Mer nerve.
+            </p>
+            <div class="hero__meta">
+              <span class="hero__scroll">↓</span>
+              <span class="hero__rule" aria-hidden="true"></span>
+            </div>
           </div>
         </div>
       </section>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span class="marquee__text"
-            >Håndverk · Materialitet · Patina · Oslo · Langsom produksjon · Tre som varer ·
-          </span>
-          <span class="marquee__text"
-            >Håndverk · Materialitet · Patina · Oslo · Langsom produksjon · Tre som varer ·
-          </span>
-        </div>
-      </div>
-
-      <section class="slab" aria-label="Manifest">
+      <section class="slab slab--offset slab--rupture" aria-label="Manifest">
         <p class="slab__index">02</p>
         <p class="slab__h">Brutalt ærlig om hva ting koster — i tid og materiale.</p>
         <p class="slab__p">
@@ -68,13 +84,24 @@
         </p>
       </section>
 
-      <section class="section section--cream section--skew" id="merke" aria-labelledby="merke-h">
+      <div class="marquee marquee--tight marquee--inverse" aria-hidden="true">
+        <div class="marquee__track marquee__track--reverse">
+          <span class="marquee__text"
+            >motsatt retning · samme intensjon · motsatt retning · samme intensjon ·
+          </span>
+          <span class="marquee__text"
+            >motsatt retning · samme intensjon · motsatt retning · samme intensjon ·
+          </span>
+        </div>
+      </div>
+
+      <section class="section section--cream section--tilt section--paint" id="merke" aria-labelledby="merke-h">
         <div class="section__grid section__grid--split">
-          <div>
+          <div class="section__sticky-title">
             <p class="section__label" id="merke-h"><span class="section__label__bracket">//</span> Merke</p>
-            <h2 class="section__h2">Ikke et møbelhus. En annen gate.</h2>
+            <h2 class="section__h2 section__h2--jagged">Ikke et møbelhus. En annen gate.</h2>
           </div>
-          <div class="section__prose-wrap">
+          <div class="section__prose-wrap section__prose-wrap--hang section__prose-wrap--tape">
             <p class="section__prose">
               <strong>Karamell og Furu</strong> er søsterk til <a href="https://simonoglucien.com/">Simon og Lucien</a> — samme respekt for håndverk,
               men et annet uttrykk: for deg som bevisst søker bort fra «trygt nordisk grått» og vil ha rom med tekstur, mot og litt råhet.
@@ -87,26 +114,28 @@
         </div>
       </section>
 
-      <section class="gallery-wrap" aria-label="Utvalgte arbeider">
-        <div class="gallery-intro">
-          <div>
-            <p class="section__label section__label--on-dark"><span class="section__label__bracket">//</span> Arbeider</p>
-            <h2 class="gallery-intro__h2">Utvalgte stemninger</h2>
+      <section class="gallery-wrap gallery-wrap--stage" id="arbeid" aria-label="Utvalgte arbeider">
+        <div class="gallery-intro gallery-intro--split">
+          <h2 class="gallery-intro__h2 gallery-intro__h2--vertical">Stemninger</h2>
+          <div class="gallery-intro__aside">
+            <p class="section__label section__label--on-dark"><span class="section__label__bracket">//</span> Arbeid</p>
             <p class="gallery-intro__prose">
-              Plassholdere nå — bytt i <code>data/gallery.json</code> og <code>images/gallery/</code>.
+              Plassholdere — bytt i <code>data/gallery.json</code> og <code>images/gallery/</code>.
             </p>
           </div>
         </div>
-        <div id="gallery-mount"></div>
+        <div class="bento-stage">
+          <div id="gallery-mount"></div>
+        </div>
       </section>
 
-      <section class="section section--furu section--border-top" aria-labelledby="filosofi-h">
-        <div class="section__grid section__grid--split">
+      <section class="section section--furu section--border-top section--bleed section--noise" id="ro" aria-labelledby="filosofi-h">
+        <div class="section__grid section__grid--split section__grid--reverse">
           <div>
             <p class="section__label" id="filosofi-h"><span class="section__label__bracket">//</span> For hvem</p>
-            <h2 class="section__h2">Du kjøper ikke volum. Du kjøper ro.</h2>
+            <h2 class="section__h2 section__h2--stagger">Du kjøper ikke volum. Du kjøper ro.</h2>
           </div>
-          <div>
+          <div class="section__prose--wide section__prose--cut">
             <p class="section__prose">
               For deg som vil ha spesialtilpassede grep — og som skjønner at ekte kvalitet tar tid. Vi snakker tidlig, setter rammer, leverer utenfor katalogen.
             </p>
@@ -117,31 +146,32 @@
         </div>
       </section>
 
-      <section class="cta" id="kontakt" aria-labelledby="cta-h">
+      <section class="cta cta--split cta--rupture" id="kontakt" aria-labelledby="cta-h">
         <div class="cta__block" aria-hidden="true"></div>
+        <div class="cta__wash" aria-hidden="true"></div>
         <div class="cta__inner">
           <p class="cta__eyebrow">[03] Kontakt</p>
           <h2 class="cta__h2" id="cta-h">La oss ta en prat</h2>
           <p class="cta__p">
             Kort beskrivelse av rom eller prosjekt — vi svarer ærlig om vi er riktig match.
           </p>
-          <a class="btn" href="mailto:studio@karamellogfuru.no?subject=Karamell%20og%20Furu%20—%20henvendelse">studio@karamellogfuru.no</a>
+          <a class="btn btn--wild" href="mailto:studio@karamellogfuru.no?subject=Karamell%20og%20Furu%20—%20henvendelse">studio@karamellogfuru.no</a>
         </div>
+        <p class="cta__aside" aria-hidden="true">Post</p>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer__inner">
-        <div>
-          <p class="footer__brand">Karamell og Furu</p>
-          <p class="footer__tag">Luksusfinsnikeri · søsterk til Simon og Lucien AS</p>
-        </div>
-        <p class="footer__meta">
-          © <span id="y"></span> · Oslo ·
-          <a href="https://simonoglucien.com/">Simon og Lucien</a>
-        </p>
-      </div>
-    </footer>
+    <nav class="site-dock site-dock--cut" aria-label="Hovednavigasjon">
+      <a class="site-dock__brand" href="#main"><span class="site-dock__dot" aria-hidden="true"></span> Karamell / Furu</a>
+      <ul class="site-dock__links">
+        <li><a href="#main">Åpning</a></li>
+        <li><a href="#merke">Merke</a></li>
+        <li><a href="#arbeid">Arbeid</a></li>
+        <li><a href="#ro">Ro</a></li>
+        <li><a href="#kontakt">Prat</a></li>
+      </ul>
+      <a class="site-dock__mail" href="mailto:studio@karamellogfuru.no">E-post</a>
+    </nav>
 
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
