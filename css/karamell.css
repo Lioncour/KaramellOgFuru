@@ -1,27 +1,28 @@
-/* Karamell og Furu — neo-brutalist / kunstnerisk web, 2026-tendenser */
+/* Karamell og Furu — hard brutalist (flat, svart/hvitt/betong + gul/rød/blå) */
 
 :root {
-  --void: #080605;
-  --espresso: #120c09;
-  --caramel-deep: #4a2f1c;
-  --caramel: #8b5c3b;
-  --caramel-soft: #c9a27e;
-  --cream: #f0e8dc;
-  --cream-dim: #d9cfc2;
-  --concrete: #b8b0a4;
-  --concrete-dark: #8a8278;
-  --furu: #0f1f17;
-  --furu-mid: #1a2e22;
-  --acid: #d4ff4a;
-  --ink: #0a0a0a;
-  --white: #faf7f2;
+  --void: #000000;
+  --espresso: #0a0a0a;
+  --cream: #ffffff;
+  --cream-dim: #a8a8a0;
+  --concrete: #d4d4cc;
+  --concrete-dark: #9c9c94;
+  --caramel-deep: #000000;
+  --caramel: #1a1a1a;
+  --caramel-soft: #ff2d20;
+  --furu: #000000;
+  --furu-mid: #121212;
+  --acid: #fff100;
+  --ink: #000000;
+  --white: #ffffff;
+  --link: #0030ff;
   --font-display: "Syne", system-ui, sans-serif;
   --font-brutal: "Anton", "Impact", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --font-body: "Source Serif 4", "Georgia", serif;
-  --brutal-border: 3px solid var(--ink);
-  --brutal-shadow: 8px 8px 0 var(--ink);
-  --brutal-shadow-sm: 4px 4px 0 var(--ink);
+  --brutal-border: 4px solid var(--ink);
+  --brutal-shadow: 10px 10px 0 var(--ink);
+  --brutal-shadow-sm: 5px 5px 0 var(--ink);
   --ease-brutal: cubic-bezier(0.17, 0.84, 0.44, 1);
 }
 
@@ -70,8 +71,8 @@ body {
   font-size: 1.06rem;
   font-weight: 400;
   line-height: 1.65;
-  color: var(--cream);
-  background: var(--void);
+  color: var(--ink);
+  background: var(--concrete);
   -webkit-font-smoothing: antialiased;
   padding-bottom: max(6.5rem, calc(env(safe-area-inset-bottom, 0px) + 5.5rem));
 }
@@ -87,19 +88,19 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  opacity: 0.055;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a {
-  color: var(--acid);
-  text-decoration-thickness: 2px;
+  color: var(--link);
+  text-decoration-thickness: 3px;
   text-underline-offset: 0.2em;
 }
 
 a:hover {
-  color: var(--cream);
-  background: rgba(212, 255, 74, 0.12);
+  color: var(--white);
+  background: var(--ink);
 }
 
 .skip {
@@ -138,7 +139,7 @@ a:hover {
   line-height: 0.85;
   letter-spacing: -0.04em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(240, 232, 220, 0.07);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.09);
   transform: rotate(-12deg) translateX(-5%);
   user-select: none;
 }
@@ -154,8 +155,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   border: var(--brutal-border);
-  background: rgba(8, 6, 5, 0.85);
-  color: var(--acid);
+  background: var(--cream);
+  color: var(--ink);
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: 1.1rem;
@@ -166,6 +167,7 @@ a:hover {
 .corner-hit:hover {
   background: var(--acid);
   color: var(--ink);
+  box-shadow: var(--brutal-shadow-sm);
 }
 
 .colophon {
@@ -182,34 +184,31 @@ a:hover {
   max-width: min(14rem, 42vw);
 }
 
-.colophon__link,
+.colophon__tag,
 .colophon__meta {
   pointer-events: auto;
 }
 
-.colophon__link {
+.colophon__tag {
   font-family: var(--font-mono);
   font-size: 0.58rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  text-decoration: none;
-  color: var(--cream);
-  padding: 0.4rem 0.55rem;
-  border: 1px solid rgba(240, 232, 220, 0.28);
-  background: rgba(8, 6, 5, 0.75);
-}
-
-.colophon__link:hover {
-  border-color: var(--acid);
-  color: var(--acid);
-  background: rgba(8, 6, 5, 0.92);
+  color: var(--ink);
+  padding: 0.45rem 0.6rem;
+  border: var(--brutal-border);
+  background: var(--acid);
+  box-shadow: var(--brutal-shadow-sm);
 }
 
 .colophon__meta {
   font-family: var(--font-mono);
   font-size: 0.58rem;
-  color: rgba(240, 232, 220, 0.4);
-  letter-spacing: 0.06em;
+  color: var(--cream);
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.55rem;
+  border: var(--brutal-border);
+  background: var(--ink);
 }
 
 /* ——— Bund-dock: hovednavigasjon (utradisjonelt) ——— */
@@ -227,10 +226,10 @@ a:hover {
   min-height: 0;
   padding: 0.75rem max(1rem, env(safe-area-inset-right)) calc(0.75rem + env(safe-area-inset-bottom))
     max(1rem, env(safe-area-inset-left));
-  background: var(--cream);
-  color: var(--ink);
-  border-top: var(--brutal-border);
-  box-shadow: 0 -8px 0 var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+  border-top: 4px solid var(--acid);
+  box-shadow: none;
 }
 
 .site-dock__brand {
@@ -240,14 +239,14 @@ a:hover {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--cream);
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
 }
 
 .site-dock__brand:hover {
-  color: var(--caramel-deep);
+  color: var(--acid);
 }
 
 .site-dock__dot {
@@ -276,13 +275,13 @@ a:hover {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--cream);
   padding: 0.2rem 0;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
 .site-dock__links a:hover {
-  color: var(--ink);
+  color: var(--acid);
   background: none;
   border-bottom-color: var(--acid);
 }
@@ -297,12 +296,13 @@ a:hover {
   color: var(--ink);
   background: var(--acid);
   padding: 0.5rem 0.85rem;
-  border: 2px solid var(--ink);
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
 }
 
 .site-dock__mail:hover {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
 }
 
 /* ——— Hero (asymmetrisk, ikke «hero-blokk» midtstilt) ——— */
@@ -315,42 +315,36 @@ a:hover {
   padding: clamp(4.5rem, 10vw, 6rem) 0 max(4rem, calc(env(safe-area-inset-bottom) + 3rem));
   position: relative;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 2% 100%);
-  background:
-    linear-gradient(135deg, transparent 49.5%, rgba(212, 255, 74, 0.04) 49.5%, rgba(212, 255, 74, 0.04) 50.5%, transparent 50.5%),
-    linear-gradient(var(--void) 0%, var(--espresso) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), 0 100%);
+  background: var(--void);
+  border-bottom: var(--brutal-border);
 }
 
 .hero__grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(247, 240, 232, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(247, 240, 232, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
   pointer-events: none;
 }
 
 .hero__glow {
   position: absolute;
-  width: min(100vw, 640px);
-  height: min(100vw, 640px);
-  border-radius: 50%;
-  background: conic-gradient(from 120deg at 50% 50%, rgba(201, 162, 126, 0.15), transparent 40%, rgba(212, 255, 74, 0.08), transparent 75%);
-  top: -25%;
-  right: -20%;
+  top: 0;
+  right: 0;
+  width: min(42vw, 320px);
+  height: 100%;
+  background: var(--acid);
+  opacity: 0.14;
   pointer-events: none;
-  filter: blur(40px);
-  animation: heroDrift 18s ease-in-out infinite alternate;
+  border-left: var(--brutal-border);
 }
 
-@keyframes heroDrift {
-  from {
-    transform: rotate(0deg) scale(1);
-  }
-  to {
-    transform: rotate(25deg) scale(1.05);
+@media (prefers-reduced-motion: reduce) {
+  .hero__glow {
+    opacity: 0.1;
   }
 }
 
@@ -364,7 +358,7 @@ a:hover {
   font-size: 0.62rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(240, 232, 220, 0.35);
+  color: rgba(255, 255, 255, 0.45);
   display: flex;
   flex-direction: row;
   gap: 0.35rem;
@@ -416,8 +410,9 @@ a:hover {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--cream-dim);
+  color: var(--cream);
   margin: 0 0 1rem;
+  opacity: 0.85;
 }
 
 .hero__eyebrow__tag {
@@ -445,7 +440,7 @@ a:hover {
 }
 
 .hero__line--solid {
-  background: linear-gradient(100deg, var(--white) 0%, var(--caramel-soft) 55%, var(--cream-dim) 100%);
+  background: linear-gradient(95deg, var(--white) 0%, var(--acid) 48%, var(--white) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -460,8 +455,8 @@ a:hover {
   line-height: 1.1;
   margin-top: 0.15em;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(247, 240, 232, 0.92);
-  text-stroke: 1.5px rgba(247, 240, 232, 0.92);
+  -webkit-text-stroke: 2px var(--cream);
+  text-stroke: 2px var(--cream);
 }
 
 .hero__lead {
@@ -469,8 +464,9 @@ a:hover {
   line-height: 1.55;
   max-width: 28ch;
   margin: 0 0 1.5rem;
-  color: var(--cream-dim);
+  color: var(--cream);
   font-style: italic;
+  opacity: 0.92;
 }
 
 @media (max-width: 61.99rem) {
@@ -491,15 +487,16 @@ a:hover {
   font-size: 0.65rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: rgba(240, 232, 220, 0.4);
+  color: var(--acid);
   margin: 0;
 }
 
 .hero__rule {
   flex: 1;
   max-width: 120px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--acid), transparent);
+  height: 4px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
 }
 
 /* ——— Marquee ——— */
@@ -631,22 +628,22 @@ a:hover {
 }
 
 .section--cream a {
-  color: var(--caramel-deep);
+  color: var(--link);
 }
 
 .section--cream a:hover {
   color: var(--ink);
-  background: rgba(212, 255, 74, 0.25);
+  background: rgba(255, 241, 0, 0.25);
 }
 
 .section--furu {
   background: var(--furu);
-  color: var(--cream-dim);
+  color: var(--concrete);
 }
 
 .section--border-top {
   border-top: var(--brutal-border);
-  box-shadow: inset 0 1px 0 rgba(212, 255, 74, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 241, 0, 0.15);
 }
 
 .section__grid {
@@ -726,7 +723,7 @@ a:hover {
 .section__prose-wrap {
   border: var(--brutal-border);
   padding: clamp(1.25rem, 3vw, 2rem);
-  background: rgba(255, 255, 255, 0.35);
+  background: var(--cream);
   box-shadow: var(--brutal-shadow-sm);
 }
 
@@ -823,7 +820,7 @@ a:hover {
 .gallery-intro__prose {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--cream-dim);
+  color: var(--concrete);
   margin: 0;
   max-width: 44ch;
   line-height: 1.65;
@@ -832,7 +829,7 @@ a:hover {
 .gallery-intro code {
   font-size: 0.92em;
   color: var(--acid);
-  background: rgba(212, 255, 74, 0.08);
+  background: rgba(255, 241, 0, 0.08);
   padding: 0.1em 0.35em;
 }
 
@@ -935,7 +932,7 @@ a:hover {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cream);
-  background: linear-gradient(transparent, rgba(8, 6, 5, 0.92));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.94));
   opacity: 0;
   transition: opacity 0.3s ease;
   border-top: 2px solid var(--acid);
@@ -948,10 +945,10 @@ a:hover {
 .gallery-fallback {
   text-align: center;
   padding: 3rem 1.5rem;
-  color: var(--cream-dim);
+  color: var(--concrete);
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  border: 2px dashed rgba(240, 232, 220, 0.25);
+  border: 2px dashed rgba(255, 255, 255, 0.35);
 }
 
 .gallery-fallback code {
@@ -978,8 +975,8 @@ a:hover {
     -45deg,
     transparent,
     transparent 12px,
-    rgba(212, 255, 74, 0.06) 12px,
-    rgba(212, 255, 74, 0.06) 24px
+    rgba(255, 241, 0, 0.06) 12px,
+    rgba(255, 241, 0, 0.06) 24px
   );
   pointer-events: none;
 }
@@ -1009,7 +1006,7 @@ a:hover {
 
 .cta__p {
   margin: 0 0 2rem;
-  color: var(--cream-dim);
+  color: var(--concrete);
   max-width: 36ch;
 }
 
@@ -1059,7 +1056,7 @@ a:hover {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(247, 240, 232, 0.22);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.35);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   user-select: none;
@@ -1092,13 +1089,16 @@ a:hover {
 
 .hero__stain {
   position: absolute;
-  bottom: 15%;
-  left: 8%;
-  width: 42vmin;
-  height: 42vmin;
-  background: radial-gradient(circle, rgba(212, 255, 74, 0.1) 0%, transparent 68%);
-  filter: blur(28px);
+  bottom: 12%;
+  left: 6%;
+  width: min(38vmin, 280px);
+  height: min(38vmin, 280px);
+  background: var(--acid);
+  opacity: 0.22;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow-sm);
   pointer-events: none;
+  transform: rotate(-4deg);
 }
 
 .hero__coords {
@@ -1110,7 +1110,7 @@ a:hover {
   font-size: 0.58rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(240, 232, 220, 0.2);
+  color: rgba(255, 255, 255, 0.2);
   transform: rotate(-90deg);
   transform-origin: 100% 100%;
   pointer-events: none;
@@ -1142,7 +1142,7 @@ a:hover {
 .hero__float--2 {
   top: 36%;
   right: 10%;
-  color: rgba(201, 162, 126, 0.85);
+  color: rgba(255, 45, 32, 0.95);
   opacity: 0.55;
   transform: rotate(14deg);
 }
@@ -1150,7 +1150,7 @@ a:hover {
 .hero__float--3 {
   bottom: 42%;
   left: 14%;
-  color: rgba(240, 232, 220, 0.35);
+  color: rgba(255, 255, 255, 0.35);
   transform: rotate(4deg);
 }
 
@@ -1176,7 +1176,7 @@ a:hover {
   font-size: clamp(2.6rem, 12vw, 7.2rem);
   line-height: 0.88;
   letter-spacing: -0.045em;
-  background: linear-gradient(100deg, var(--white) 0%, var(--caramel-soft) 55%, var(--cream-dim) 100%);
+  background: linear-gradient(95deg, var(--white) 0%, var(--acid) 48%, var(--white) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1219,7 +1219,7 @@ a:hover {
   align-self: flex-end;
   margin-bottom: 22vh;
   transform: rotate(10deg);
-  -webkit-text-stroke: 1px rgba(212, 255, 74, 0.12);
+  -webkit-text-stroke: 1px rgba(255, 241, 0, 0.12);
   opacity: 0.45;
 }
 
@@ -1240,8 +1240,8 @@ a:hover {
   font-size: 0.5rem;
   letter-spacing: 0.38em;
   text-transform: uppercase;
-  color: rgba(240, 232, 220, 0.11);
-  border-left: 1px dashed rgba(240, 232, 220, 0.16);
+  color: rgba(255, 255, 255, 0.11);
+  border-left: 1px dashed rgba(255, 255, 255, 0.16);
   padding: 5rem 0 calc(5rem + env(safe-area-inset-bottom));
 }
 
@@ -1299,9 +1299,9 @@ a:hover {
   inset: -3rem 12% 25% -12%;
   background: linear-gradient(
     118deg,
-    rgba(212, 255, 74, 0.12) 0%,
+    rgba(255, 241, 0, 0.12) 0%,
     transparent 50%,
-    rgba(201, 162, 126, 0.1) 100%
+    rgba(0, 48, 255, 0.14) 100%
   );
   transform: rotate(-1.8deg);
   z-index: 0;
@@ -1321,7 +1321,7 @@ a:hover {
 
 .section__prose-wrap--tape {
   transform: rotate(0.55deg) translateX(3%);
-  box-shadow: 16px 16px 0 rgba(10, 10, 10, 0.07);
+  box-shadow: var(--brutal-shadow);
 }
 
 @media (max-width: 48rem) {
@@ -1372,15 +1372,15 @@ a:hover {
   background: linear-gradient(
     180deg,
     transparent 62%,
-    rgba(212, 255, 74, 0.2) 62%,
-    rgba(212, 255, 74, 0.2) 86%,
+    rgba(255, 241, 0, 0.2) 62%,
+    rgba(255, 241, 0, 0.2) 86%,
     transparent 86%
   );
 }
 
 .section__prose--cut {
-  border-top: 2px dashed rgba(212, 255, 74, 0.32);
-  border-bottom: 2px dashed rgba(212, 255, 74, 0.18);
+  border-top: 2px dashed rgba(255, 241, 0, 0.32);
+  border-bottom: 2px dashed rgba(255, 241, 0, 0.18);
   padding-top: 1.35rem;
   padding-bottom: 1.35rem;
 }
@@ -1388,7 +1388,7 @@ a:hover {
 .section--noise {
   background-image:
     url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='z'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23z)' opacity='0.04'/%3E%3C/svg%3E"),
-    linear-gradient(185deg, var(--furu) 0%, var(--furu-mid) 55%, #0a1510 100%);
+    linear-gradient(185deg, var(--furu) 0%, var(--furu-mid) 55%, var(--espresso) 100%);
 }
 
 .cta--rupture {
@@ -1397,12 +1397,15 @@ a:hover {
 
 .cta__wash {
   position: absolute;
-  left: -25%;
-  bottom: -35%;
-  width: 60vmin;
-  height: 60vmin;
-  background: radial-gradient(circle, rgba(212, 255, 74, 0.08), transparent 72%);
+  left: -8%;
+  bottom: -20%;
+  width: min(48vmin, 340px);
+  height: min(48vmin, 340px);
+  background: var(--acid);
+  opacity: 0.12;
+  border: var(--brutal-border);
   pointer-events: none;
+  transform: rotate(8deg);
 }
 
 .btn--wild {
@@ -1419,7 +1422,7 @@ a:hover {
 }
 
 .atelier ::selection {
-  background: rgba(212, 255, 74, 0.38);
+  background: rgba(255, 241, 0, 0.38);
   color: var(--ink);
 }
 
