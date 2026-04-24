@@ -3,140 +3,925 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Karamell og Furu — atelier for tre</title>
+    <title>Karamell og Furu</title>
     <meta
       name="description"
-      content="Karamell og Furu: norsk luksusfinsnikeri i tre — utvalgte prosjekter, langsomt håndverk, ekte materialer. Oslo."
+      content="Atelier for tre — luksusfinsnikeri, Oslo. Patina, presisjon, materialer som tåler nærstudium."
     />
-    <meta property="og:title" content="Karamell og Furu" />
-    <meta property="og:description" content="Luksusfinsnikeri. Ro, patina, presisjon." />
-    <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/karamell.css" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --paper: #ebe6df;
+        --paper-hot: #f5f0e8;
+        --void: #080808;
+        --void-soft: #141414;
+        --ink: #0c0c0c;
+        --muted: #5c5854;
+        --acid: #00e8b7;
+        --ember: #e63b1a;
+        --font-display: "Instrument Serif", "Times New Roman", serif;
+        --font-sans: "Syne", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, monospace;
+        --space: clamp(1rem, 4vw, 3rem);
+        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 1rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .marq__track {
+          animation: none !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.55;
+        color: var(--ink);
+        background: var(--paper);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9998;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.18em;
+      }
+
+      a:hover {
+        color: var(--ember);
+      }
+
+      .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: 0.65rem 1rem;
+        background: var(--void);
+        color: var(--paper);
+        z-index: 100000;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+      }
+
+      .skip:focus {
+        left: 1rem;
+        top: 1rem;
+      }
+
+      /* ——— Frame nav (fixed, avant-garde) ——— */
+      .frame {
+        position: fixed;
+        z-index: 900;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .frame a,
+      .frame button {
+        pointer-events: auto;
+      }
+
+      .frame__rail {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3.25rem;
+        height: 100%;
+        border-left: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+        background: color-mix(in srgb, var(--paper) 82%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.75rem;
+        padding: 5rem 0;
+      }
+
+      .frame__rail a {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--muted);
+        transition: color 0.25s var(--ease-out);
+      }
+
+      .frame__rail a:hover {
+        color: var(--void);
+      }
+
+      .frame__corner {
+        position: absolute;
+        top: var(--space);
+        left: var(--space);
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        max-width: 12rem;
+        line-height: 1.4;
+      }
+
+      .frame__corner strong {
+        display: block;
+        color: var(--ink);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.35rem;
+      }
+
+      @media (max-width: 52rem) {
+        .frame__rail {
+          display: none;
+        }
+      }
+
+      /* ——— Hero stage ——— */
+      .stage {
+        min-height: 100dvh;
+        padding: calc(var(--space) + 2.5rem) var(--space) var(--space);
+        padding-right: calc(var(--space) + 2.5rem);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: var(--paper-hot);
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
+      }
+
+      .stage__gridline {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--ink) 6%, transparent) 1px,
+            transparent 1px
+          )
+          0 0 / 11% 100%;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      .stage__block {
+        position: absolute;
+        top: 18%;
+        right: 12%;
+        width: min(42vw, 280px);
+        aspect-ratio: 1;
+        border: 1px solid var(--ink);
+        transform: rotate(12deg);
+        pointer-events: none;
+      }
+
+      .stage__block::after {
+        content: "";
+        position: absolute;
+        inset: 12%;
+        border: 1px dashed color-mix(in srgb, var(--ink) 35%, transparent);
+      }
+
+      .stage__tag {
+        position: relative;
+        z-index: 1;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--ember);
+        margin: 0 0 1.5rem;
+      }
+
+      .stage__title {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-style: italic;
+        font-size: clamp(3.2rem, 14.5vw, 11rem);
+        line-height: 0.88;
+        letter-spacing: -0.045em;
+        color: var(--void);
+      }
+
+      .stage__title span {
+        display: block;
+      }
+
+      .stage__title .line2 {
+        font-style: normal;
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: 0.28em;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        margin-top: 0.15em;
+        margin-left: 0.04em;
+        color: var(--muted);
+      }
+
+      .stage__sub {
+        position: relative;
+        z-index: 1;
+        max-width: 22rem;
+        margin: 2.5rem 0 0;
+        font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .stage__sub em {
+        font-family: var(--font-display);
+        font-style: italic;
+        color: var(--ink);
+      }
+
+      .stage__cta {
+        position: relative;
+        z-index: 1;
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.95rem 1.4rem;
+        border-radius: 999px;
+        border: 1px solid var(--void);
+        background: var(--void);
+        color: var(--paper);
+        transition: transform 0.3s var(--ease-out), background 0.3s, color 0.3s;
+      }
+
+      .pill:hover {
+        background: var(--acid);
+        color: var(--void);
+        border-color: var(--acid);
+      }
+
+      .pill--ghost {
+        background: transparent;
+        color: var(--void);
+      }
+
+      .pill--ghost:hover {
+        background: var(--void);
+        color: var(--paper);
+      }
+
+      /* ——— Marquee ——— */
+      .marq {
+        background: var(--void);
+        color: var(--paper);
+        overflow: hidden;
+        padding: 0.65rem 0;
+        border-block: 1px solid color-mix(in srgb, var(--acid) 40%, var(--void));
+      }
+
+      .marq__track {
+        display: flex;
+        width: max-content;
+        animation: marq 42s linear infinite;
+      }
+
+      .marq__item {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: clamp(1.1rem, 3vw, 1.65rem);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        padding-right: 3rem;
+        opacity: 0.92;
+      }
+
+      .marq__item em {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        text-transform: none;
+        color: var(--acid);
+      }
+
+      @keyframes marq {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ——— Poster interlude ——— */
+      .poster {
+        padding: clamp(4rem, 12vw, 8rem) var(--space);
+        background: var(--paper);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .poster__word {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: clamp(3.5rem, 18vw, 14rem);
+        line-height: 0.82;
+        letter-spacing: -0.06em;
+        margin: 0;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--ink);
+        text-stroke: 1.5px var(--ink);
+        opacity: 0.88;
+      }
+
+      .poster__caption {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ember);
+        margin: 1.5rem 0 0;
+        max-width: 28ch;
+      }
+
+      /* ——— Merke (split / diagonal) ——— */
+      .split {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: min(88vh, 52rem);
+      }
+
+      @media (min-width: 56rem) {
+        .split {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .split__dark {
+        background: var(--void);
+        color: var(--paper);
+        padding: var(--space);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 98%);
+      }
+
+      @media (min-width: 56rem) {
+        .split__dark {
+          clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+        }
+      }
+
+      .split__light {
+        background: var(--paper);
+        padding: var(--space);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--acid);
+        margin: 0 0 1rem;
+      }
+
+      .split__light .eyebrow {
+        color: var(--ember);
+      }
+
+      .split h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-style: italic;
+        font-size: clamp(1.85rem, 4.2vw, 3.2rem);
+        line-height: 1.08;
+        margin: 0 0 1.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .split__light h2 {
+        font-style: normal;
+        font-family: var(--font-sans);
+        font-weight: 700;
+      }
+
+      .split p {
+        margin: 0;
+        color: color-mix(in srgb, currentColor 72%, transparent);
+        font-size: 1.02rem;
+        max-width: 38ch;
+      }
+
+      .split p + p {
+        margin-top: 1.1rem;
+      }
+
+      .split strong {
+        color: currentColor;
+        font-weight: 600;
+      }
+
+      .split__pull {
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.35rem;
+        color: currentColor;
+      }
+
+      /* ——— Gallery: horizontal avant-garde strip ——— */
+      .g {
+        background: var(--void-soft);
+        color: var(--paper);
+        padding: var(--space) 0 calc(var(--space) * 1.5);
+        position: relative;
+      }
+
+      .g__head {
+        padding: 0 var(--space) 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        max-width: 110rem;
+        margin: 0 auto;
+      }
+
+      .g__label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--acid);
+      }
+
+      .g__h {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: clamp(2rem, 6vw, 4rem);
+        letter-spacing: -0.04em;
+        margin: 0.25rem 0 0;
+      }
+
+      .g__hint {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: color-mix(in srgb, var(--paper) 45%, transparent);
+        max-width: 26ch;
+        line-height: 1.5;
+      }
+
+      .g__strip-wrap {
+        position: relative;
+      }
+
+      .g__strip {
+        display: flex;
+        gap: 0.85rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: var(--space);
+        padding: 0.5rem var(--space) 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--acid) var(--void);
+      }
+
+      .g__strip::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .g__strip::-webkit-scrollbar-thumb {
+        background: var(--acid);
+      }
+
+      .g__fig {
+        flex: 0 0 min(78vw, 380px);
+        scroll-snap-align: start;
+        margin: 0;
+        position: relative;
+        border-radius: 2px;
+        overflow: hidden;
+        border: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+        background: var(--void);
+      }
+
+      .g__fig--wide {
+        flex-basis: min(92vw, 720px);
+      }
+
+      .g__fig--tall {
+        flex-basis: min(70vw, 340px);
+      }
+
+      .g__fig img {
+        width: 100%;
+        height: min(52vh, 420px);
+        object-fit: cover;
+        display: block;
+        filter: contrast(1.05) saturate(0.92);
+        transition: filter 0.5s var(--ease-out), transform 0.6s var(--ease-out);
+      }
+
+      .g__fig--wide img {
+        height: min(48vh, 380px);
+      }
+
+      .g__fig:hover img {
+        filter: contrast(1.08) saturate(1);
+        transform: scale(1.04);
+      }
+
+      .g__cap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2.5rem 0.85rem 0.75rem;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      .g__fig:hover .g__cap {
+        opacity: 1;
+      }
+
+      .g__idx {
+        position: absolute;
+        top: 0.65rem;
+        left: 0.65rem;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        color: var(--acid);
+        mix-blend-mode: difference;
+      }
+
+      /* ——— Ro band ——— */
+      .band {
+        padding: clamp(4rem, 14vw, 7rem) var(--space);
+        background: var(--paper-hot);
+        position: relative;
+      }
+
+      .band__inner {
+        max-width: 52rem;
+        margin: 0 auto;
+      }
+
+      .band__h {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(2rem, 5.5vw, 3.8rem);
+        line-height: 1.05;
+        margin: 0 0 1.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .band__grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 44rem) {
+        .band__grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+      }
+
+      .band p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      .band__rule {
+        height: 3px;
+        width: 4rem;
+        background: linear-gradient(90deg, var(--ember), var(--acid));
+        margin-bottom: 1.25rem;
+      }
+
+      /* ——— Kontakt ——— */
+      .end {
+        min-height: 70vh;
+        padding: var(--space);
+        background: var(--void);
+        color: var(--paper);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .end .eyebrow {
+        color: var(--acid);
+      }
+
+      .end h2 {
+        font-family: var(--font-sans);
+        font-weight: 800;
+        font-size: clamp(1.75rem, 4vw, 2.75rem);
+        letter-spacing: -0.03em;
+        margin: 0.5rem 0 1rem;
+        max-width: 14ch;
+      }
+
+      .end p {
+        margin: 0 0 2rem;
+        color: color-mix(in srgb, var(--paper) 65%, transparent);
+        max-width: 32ch;
+      }
+
+      .end__mail {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: clamp(1.25rem, 3.5vw, 2rem);
+        text-decoration: none;
+        border-bottom: 2px solid var(--acid);
+        padding-bottom: 0.15em;
+        transition: color 0.25s, border-color 0.25s;
+      }
+
+      .end__mail:hover {
+        color: var(--acid);
+        border-color: var(--ember);
+      }
+
+      /* ——— Footer ——— */
+      .foot {
+        padding: 1.25rem var(--space) 2rem;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 2rem;
+        justify-content: space-between;
+        background: var(--paper);
+        border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      }
+
+      .foot strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      /* Mobile bottom nav */
+      .mobnav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 950;
+        padding: 0.65rem var(--space);
+        padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
+        background: color-mix(in srgb, var(--paper) 92%, transparent);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+        justify-content: space-around;
+        gap: 0.5rem;
+      }
+
+      .mobnav a {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--muted);
+      }
+
+      .mobnav a:hover {
+        color: var(--void);
+      }
+
+      @media (max-width: 52rem) {
+        .mobnav {
+          display: flex;
+        }
+        .stage {
+          padding-bottom: 4.5rem;
+        }
+        body {
+          padding-bottom: 3.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <a class="skip" href="#main">Hopp til innhold</a>
 
-    <header class="shell-header">
-      <div class="shell-header__inner">
-        <a class="shell-brand" href="#main">
-          <span class="shell-brand__mark" aria-hidden="true"></span>
-          <span class="shell-brand__text">Karamell <span class="shell-brand__slash">/</span> Furu</span>
-        </a>
-        <nav class="shell-nav" aria-label="Hovednavigasjon">
-          <a href="#merke">Merke</a>
-          <a href="#arbeid">Arbeid</a>
-          <a href="#ro">Ro</a>
-          <a class="shell-nav__cta" href="#kontakt">Kontakt</a>
-        </nav>
-        <a class="shell-mail" href="mailto:studio@karamellogfuru.no">studio@karamellogfuru.no</a>
+    <div class="frame">
+      <div class="frame__corner">
+        <strong>Karamell / Furu</strong>
+        Atelier · Oslo<br />
+        <span id="y"></span>
       </div>
-    </header>
+      <nav class="frame__rail" aria-label="Seksjoner">
+        <a href="#merke">Merke</a>
+        <a href="#arbeid">Arbeid</a>
+        <a href="#ro">Ro</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+
+    <nav class="mobnav" aria-label="Seksjoner">
+      <a href="#merke">Merke</a>
+      <a href="#arbeid">Arbeid</a>
+      <a href="#ro">Ro</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
 
     <main id="main">
-      <section class="hero26" aria-label="Introduksjon">
-        <div class="hero26__glow" aria-hidden="true"></div>
-        <div class="hero26__inner">
-          <p class="hero26__kicker">
-            <span class="hero26__kicker-dot" aria-hidden="true"></span>
-            Oslo · luksusfinsnikeri
-          </p>
-          <h1 class="hero26__title">Tre som føles som en idé, ikke en katalog.</h1>
-          <p class="hero26__lead">
-            Færre prosjekter, mer nærvær. Patina, presisjon og materialer du faktisk vil røre ved.
-          </p>
-          <div class="hero26__actions">
-            <a class="btn-pill btn-pill--primary" href="#arbeid">Se arbeid</a>
-            <a class="btn-pill btn-pill--ghost" href="#kontakt">Si hei</a>
-          </div>
-        </div>
-        <p class="hero26__scroll-hint" aria-hidden="true">Scroll</p>
-      </section>
-
-      <section class="stripe-quote" aria-label="Manifest">
-        <p class="stripe-quote__text">
-          Brutalt ærlig om hva ting koster — i tid og materiale. Ingen showroom-glans, bare håndverk som tåler lys.
+      <section class="stage" aria-label="Introduksjon">
+        <div class="stage__gridline" aria-hidden="true"></div>
+        <div class="stage__block" aria-hidden="true"></div>
+        <p class="stage__tag">Oslo — luksusfinsnikeri</p>
+        <h1 class="stage__title">
+          <span>Karamell</span>
+          <span class="line2">og Furu</span>
+        </h1>
+        <p class="stage__sub">
+          Vi bygger <em>stemning</em> i tre — ikke bare overflater. Færre prosjekter, mer nærvær, materialer du
+          faktisk lengter etter å ta på.
         </p>
-      </section>
-
-      <section class="panel panel--paper" id="merke" aria-labelledby="merke-h">
-        <div class="panel__grid">
-          <div class="panel__intro">
-            <p class="eyebrow" id="merke-h">Merke</p>
-            <h2 class="panel__h2">Ikke et møbelhus. Et sted med egen tone.</h2>
-          </div>
-          <div class="panel__card">
-            <p class="panel__prose">
-              <strong>Karamell og Furu</strong> er et lite atelier med tydelig stemme — for deg som vil bort fra trygt grått og inn i tekstur, varme og grep som betyr noe.
-            </p>
-            <p class="panel__prose">
-              Utvalgte tresorter og detaljer som tåler nærstudium. Ingen hastverk, ingen kurve-smiting.
-            </p>
-            <p class="panel__pull">Integritet over hype. Alltid.</p>
-          </div>
+        <div class="stage__cta">
+          <a class="pill" href="#arbeid">Se arbeid</a>
+          <a class="pill pill--ghost" href="#kontakt">Kontakt</a>
         </div>
       </section>
 
-      <section class="gallery-shell" id="arbeid" aria-label="Utvalgte arbeider">
-        <div class="gallery-shell__head">
+      <div class="marq" aria-hidden="true">
+        <div class="marq__track">
+          <span class="marq__item">årringer · olje · støv · tid som <em>synes</em> ·</span>
+          <span class="marq__item">årringer · olje · støv · tid som <em>synes</em> ·</span>
+          <span class="marq__item">årringer · olje · støv · tid som <em>synes</em> ·</span>
+          <span class="marq__item">årringer · olje · støv · tid som <em>synes</em> ·</span>
+        </div>
+      </div>
+
+      <section class="poster" aria-label="Ord">
+        <p class="poster__word">Patina</p>
+        <p class="poster__caption">Det som skjer når lyset får jobbe i årevis — uten filter.</p>
+      </section>
+
+      <section class="split" id="merke" aria-labelledby="merke-h">
+        <div class="split__dark">
+          <p class="eyebrow" id="merke-h">Merke</p>
+          <h2>Ikke et møbelhus. En annen gate.</h2>
+          <p>
+            <strong>Karamell og Furu</strong> er et lite atelier med egen stemme — for deg som vil bort fra trygt
+            grått og inn i tekstur, varme og grep som betyr noe.
+          </p>
+          <p class="split__pull">Integritet over hype. Alltid.</p>
+        </div>
+        <div class="split__light">
+          <p class="eyebrow">Hvordan</p>
+          <h2>Langsomt nok til at det merkes.</h2>
+          <p>
+            Utvalgte tresorter og detaljer som tåler nærstudium. Ingen hastverk, ingen kurve-smiting — bare håndverk
+            som tåler både morgenlys og kritisk blikk.
+          </p>
+        </div>
+      </section>
+
+      <section class="g" id="arbeid" aria-label="Utvalgte arbeider">
+        <header class="g__head">
           <div>
-            <p class="eyebrow eyebrow--on-dark">Arbeid</p>
-            <h2 class="gallery-shell__title">Stemninger</h2>
+            <p class="g__label">Arbeid</p>
+            <h2 class="g__h">Stemninger</h2>
           </div>
-          <p class="gallery-shell__note">
-            Plassholdere — bytt i <code>data/gallery.json</code> og <code>images/gallery/</code>.
+          <p class="g__hint">
+            Bilder i <code>images/gallery/</code> — se også <code>data/gallery.json</code>. Flere bilder: kopier en
+            <code>&lt;figure class="g__fig"&gt;</code>-blokk i denne fila.
           </p>
+        </header>
+        <div class="g__strip-wrap">
+          <div class="g__strip">
+            <figure class="g__fig g__fig--tall">
+              <span class="g__idx" aria-hidden="true">01</span>
+              <img src="images/gallery/01.jpg" alt="Interiør i varme toner og tre" width="800" height="1000" />
+              <figcaption class="g__cap">Varme toner</figcaption>
+            </figure>
+            <figure class="g__fig">
+              <span class="g__idx" aria-hidden="true">02</span>
+              <img src="images/gallery/02.jpg" alt="Detalj, lys og skygge" width="800" height="1000" />
+              <figcaption class="g__cap">Lys / skygge</figcaption>
+            </figure>
+            <figure class="g__fig">
+              <span class="g__idx" aria-hidden="true">03</span>
+              <img src="images/gallery/03.jpg" alt="Rom med håndverk" width="800" height="1000" />
+              <figcaption class="g__cap">Håndverk</figcaption>
+            </figure>
+            <figure class="g__fig g__fig--wide">
+              <span class="g__idx" aria-hidden="true">04</span>
+              <img src="images/gallery/04.jpg" alt="Arkitektonisk ro" width="1200" height="675" />
+              <figcaption class="g__cap">Ro</figcaption>
+            </figure>
+          </div>
         </div>
-        <div id="gallery-mount" class="gallery-mount"></div>
       </section>
 
-      <section class="panel panel--forest" id="ro" aria-labelledby="filosofi-h">
-        <div class="panel__grid panel__grid--reverse">
-          <div class="panel__intro">
-            <p class="eyebrow eyebrow--muted" id="filosofi-h">For hvem</p>
-            <h2 class="panel__h2 panel__h2--light">Du kjøper ikke volum. Du kjøper ro.</h2>
-          </div>
-          <div class="panel__card panel__card--glass">
-            <p class="panel__prose panel__prose--on-dark">
-              For deg som vil ha spesialtilpassede grep — og som skjønner at ekte kvalitet tar tid. Vi snakker tidlig, setter rammer, leverer utenfor katalogen.
+      <section class="band" id="ro" aria-labelledby="ro-h">
+        <div class="band__inner">
+          <div class="band__rule" aria-hidden="true"></div>
+          <p class="eyebrow" id="ro-h" style="color: var(--ember)">For hvem</p>
+          <h2 class="band__h">Du kjøper ikke volum. Du kjøper ro.</h2>
+          <div class="band__grid">
+            <p>
+              For deg som vil ha spesialtilpassede grep — og som skjønner at ekte kvalitet tar tid. Vi snakker tidlig,
+              setter rammer, leverer utenfor katalogen.
             </p>
-            <p class="panel__prose panel__prose--on-dark">
-              Ingen katalog. Ingen mellomledd som bestemmer estetikken din.
-            </p>
+            <p>Ingen katalog. Ingen mellomledd som bestemmer estetikken din.</p>
           </div>
         </div>
       </section>
 
-      <section class="cta26" id="kontakt" aria-labelledby="cta-h">
-        <div class="cta26__card">
-          <p class="eyebrow">Kontakt</p>
-          <h2 class="cta26__h2" id="cta-h">La oss ta en prat</h2>
-          <p class="cta26__p">
-            Kort beskrivelse av rom eller prosjekt — vi svarer ærlig om vi er riktig match.
-          </p>
-          <a
-            class="btn-pill btn-pill--primary btn-pill--wide"
-            href="mailto:studio@karamellogfuru.no?subject=Karamell%20og%20Furu%20—%20henvendelse"
-            >studio@karamellogfuru.no</a
-          >
-        </div>
+      <section class="end" id="kontakt" aria-labelledby="kontakt-h">
+        <p class="eyebrow">Kontakt</p>
+        <h2 id="kontakt-h">La oss snakke ærlig.</h2>
+        <p>Kort beskrivelse av rom eller prosjekt — vi svarer ærlig og personlig.</p>
+        <a
+          class="end__mail"
+          href="mailto:studio@karamellogfuru.no?subject=Karamell%20og%20Furu%20—%20henvendelse"
+          >studio@karamellogfuru.no</a
+        >
       </section>
     </main>
 
-    <footer class="site-foot">
-      <span class="site-foot__brand">Karamell og Furu</span>
-      <span class="site-foot__meta"><span id="y"></span> · Atelier · Oslo</span>
+    <footer class="foot">
+      <span><strong>Karamell og Furu</strong> · atelier</span>
+      <span>Oslo · tre · patina</span>
     </footer>
 
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
-    <script src="js/gallery.js"></script>
   </body>
 </html>

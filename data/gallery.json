@@ -1,19 +1,20 @@
 {
+  "note": "Referanse for bildene i images/gallery/. Galleriet er bygget direkte i index.html — kopier en <figure class=\"g__fig\">-blokk der for å legge til flere.",
   "images": [
     {
       "src": "images/gallery/01.jpg",
       "alt": "Interiør i varme toner og tre",
-      "size": "large"
+      "size": "tall"
     },
     {
       "src": "images/gallery/02.jpg",
       "alt": "Detalj, lys og skygge",
-      "size": "small"
+      "size": "default"
     },
     {
       "src": "images/gallery/03.jpg",
       "alt": "Rom med håndverk",
-      "size": "small"
+      "size": "default"
     },
     {
       "src": "images/gallery/04.jpg",

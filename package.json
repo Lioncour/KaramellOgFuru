@@ -2,7 +2,7 @@
   "name": "karamell-og-furu",
   "private": true,
   "scripts": {
-    "start": "npx --yes serve . -l 5173",
+    "start": "npx --yes http-server . -p 5173 -o -c-1",
     "dev": "npm start"
   }
 }
